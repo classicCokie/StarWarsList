@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Character } from '../../classes/character/character';
 import { Filter } from '../../classes/filter/filter';
@@ -22,7 +23,8 @@ export class ListViewComponent implements OnInit {
   });
   constructor(
     private characterService: CharacterService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -70,6 +72,10 @@ export class ListViewComponent implements OnInit {
       }
       return result;
     }, JSON.parse(JSON.stringify(this.characterService.characters)));
+  }
+
+  onSelectCharacter(characterId) {
+    console.log("add Routing here");
   }
 
 }

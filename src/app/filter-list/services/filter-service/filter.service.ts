@@ -86,7 +86,6 @@ export class FilterService {
     return characters.filter((character, index) => {
       if (character.birth_year !== 'unknown') {
         const age = this.getAgeAsFloat(character.birth_year);
-        console.log(character.birth_year, index);
         if (age >= paramter) {
           return character;
         }
@@ -98,7 +97,6 @@ export class FilterService {
     return characters.filter((character, index) => {
       if (character.birth_year !== 'unknown') {
         const age = this.getAgeAsFloat(character.birth_year);
-        console.log(character.birth_year, index);
         if (age <= paramter) {
           return character;
         }
