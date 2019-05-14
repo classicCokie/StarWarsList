@@ -1,5 +1,37 @@
 <div class="container">
-  <h1>The List</h1>
+
+    <div class="filter-container">
+        <form [formGroup]="filterForm">
+            <div class="form-group">
+            
+            <div class="row">
+                <div class="col-sm">
+                    <select id="film" class="form-control" formControlName="filmFilter">
+                        <option *ngFor="let option of filters.filmFilter.options" [ngValue]="option">{{ option.name }}</option>
+                    </select>
+                </div>
+                
+                <div class="col-sm">
+                    <select id="film" class="form-control" formControlName="speciesFilter" selected="All">
+                        <option *ngFor="let option of filters.speciesFilter.options" [ngValue]="option">{{ option.name }}</option>
+                    </select>
+                </div>
+              
+                <div class="col-sm">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Age min" type="number" formControlName="ageFilterMin" aria-label="Text input with dropdown button">
+                      </div>
+                </div>  
+                <div class="col-sm">
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Age max" type="number" formControlName="ageFilterMax" aria-label="Text input with dropdown button">
+                        </div>
+                </div>
+                
+              </div>
+            </div>
+        </form>
+  </div>
 	<div class="list-container">
       <h2 [style.visibility]="isLoading ? 'visible' : 'hidden'">Loading...</h2>
       <ul class="list-group" [style.visibility]="isLoading ? 'hidden' : 'visible'">
