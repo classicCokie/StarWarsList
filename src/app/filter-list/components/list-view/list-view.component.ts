@@ -75,7 +75,7 @@ export class ListViewComponent implements OnInit {
   }
 
   onSelectCharacter(characterId) {
-    console.log("add Routing here");
+    this.router.navigate(['/characters', characterId]);;
   }
 
 }

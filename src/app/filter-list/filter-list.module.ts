@@ -5,9 +5,10 @@ import { FilterListRoutingModule } from './filter-list-routing.module';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailViewComponent } from './components/detail-view/detail-view.component';
 
 @NgModule({
-  declarations: [ListViewComponent],
+  declarations: [ListViewComponent, DetailViewComponent],
   exports: [ListViewComponent],
   imports: [
     CommonModule,
