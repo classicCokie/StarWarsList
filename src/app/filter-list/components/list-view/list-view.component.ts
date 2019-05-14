@@ -5,6 +5,8 @@ import { Character } from '../../classes/character/character';
 import { Filter } from '../../classes/filter/filter';
 import { CharacterService } from '../../services/character-service/character.service';
 import { FilterService } from '../../services/filter-service/filter.service';
+import { FilmService } from '../../services/film-service/film.service';
+import { SpeciesService } from '../../services/species-service/species.service';
 
 @Component({
   selector: 'app-list-view',
@@ -24,11 +26,21 @@ export class ListViewComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
     private filterService: FilterService,
+    private speciesService: SpeciesService,
+    private filmService: FilmService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.characterService.getCharacters();
+
+    if (this.characterService.characters.length > 1) {
+      this.isLoading = false;
+      this.characters = this.characterService.characters;
+    } else {
+      this.characterService.getCharacters();
+      this.filmService.getFilms();
+      this.speciesService.getSpecies();
+    }
     this.getFilters();
     this.listenOnFilterChange();
     this.listenOnCharacterChange();
@@ -75,7 +87,7 @@ export class ListViewComponent implements OnInit {
   }
 
   onSelectCharacter(characterId) {
-    console.log("add Routing here");
+    this.router.navigate(['/characters', characterId]);;
   }
 
 }

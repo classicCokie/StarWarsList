@@ -23,28 +23,51 @@ export class ApiService {
     getCharacters(url): Observable<any> {
         url = (url === null) ? this.characterUrl : url;
         return this.http.get<any>(url).pipe(
-            catchError(this.handleError('getCharacters', []))
+          catchError(this.handleError('getCharacters', []))
         );
     }
+      getCharacter(id): Observable<any> {
+        return this.http.get<any>(`${this.characterUrl}${id}`).pipe(
+          catchError(this.handleError('getCharacter', []))
+        );
+      }
 
-    getFilms(url): Observable<any> {
+      getFilms(url): Observable<any> {
         url = (url === null) ? this.characterUrl : url;
         return this.http.get<any>(this.filmUrl).pipe(
           catchError(this.handleError('getFilms', []))
         );
-    }
+      }
 
-    getSpecies(url): Observable<any> {
+      getFilm(url): Observable<any> {
+        return this.http.get<any>(url).pipe(
+          catchError(this.handleError('getFilm', []))
+        );
+      }
+
+      getSpecies(url): Observable<any> {
         url = (url === null) ? this.speciesUrl : url;
         return this.http.get<any>(url).pipe(
           catchError(this.handleError('getSpecies', []))
         );
-    }
+      }
 
-    getStarship(url): Observable<any> {
+      getSpecie(url): Observable<any> {
+        return this.http.get<any>(url).pipe(
+          catchError(this.handleError('getSpecie', []))
+        );
+      }
+
+      getStarships(url): Observable<any> {
         url = (url === null) ? this.starShipUrl : url;
         return this.http.get<any>(url).pipe(
-          catchError(this.handleError('getSpaceships', []))
+          catchError(this.handleError('getStarships', []))
+        );
+      }
+
+      getStarship(url): Observable<any> {
+        return this.http.get<any>(url).pipe(
+          catchError(this.handleError('getStarship', []))
         );
       }
 
