@@ -31,6 +31,17 @@ export class CharacterService {
         }); 
     }
 
+    getCharacterById(id: number): Observable<Character> {
+        return new Observable(observable => {
+          const character = this.characters.find(character => character.characterId === id);
+          if (character !== undefined) {
+            observable.next(character);
+          } else {
+            this.apiService.getCharacter(id).subscribe(character => observable.next(character));
+          }
+        });
+      }
+
     extractCharacterIdFromUrl(url: string): number {
         const shortUrl = url.replace('https://swapi.co/api/people/', '');
         return parseInt(shortUrl.replace('/', ''), 10);

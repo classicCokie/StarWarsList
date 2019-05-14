@@ -28,7 +28,13 @@ export class ListViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.characterService.getCharacters();
+
+    if (this.characterService.characters.length > 1) {
+      this.isLoading = false;
+      this.characters = this.characterService.characters;
+    } else {
+      this.characterService.getCharacters();
+    }
     this.getFilters();
     this.listenOnFilterChange();
     this.listenOnCharacterChange();
