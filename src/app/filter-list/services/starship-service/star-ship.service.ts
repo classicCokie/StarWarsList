@@ -10,16 +10,14 @@ export class StarShipService {
   spaceShipPipe: EventEmitter<any> = new EventEmitter<any>();
   constructor(
     private apiService: ApiService
-  ) {
-    this.getSpaceships();
-  }
+  ) { }
 
-  getSpaceships(url= null) {
+  getStarships(url= null) {
     this.apiService.getStarships(url).subscribe(spaceShips => {
       this.spaceShips = this.spaceShips.concat(spaceShips.results);
       this.spaceShipPipe.emit(this.spaceShips);
       if (spaceShips.next !== null) {
-        this.getSpaceships(spaceShips.next);
+        this.getStarships(spaceShips.next);
       }
     });
   }

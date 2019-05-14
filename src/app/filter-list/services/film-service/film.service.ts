@@ -9,9 +9,7 @@ export class FilmService {
   filmPipe: EventEmitter<any> = new EventEmitter();
   constructor(
     private apiService: ApiService
-  ) {
-    this.getFilms();
-   }
+  ) {}
 
   getFilms(url= null) {
     this.apiService.getFilms(url).subscribe(films => {

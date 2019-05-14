@@ -25,7 +25,7 @@ export class ApiService {
         return this.http.get<any>(url).pipe(
           catchError(this.handleError('getCharacters', []))
         );
-      }
+    }
       getCharacter(id): Observable<any> {
         return this.http.get<any>(`${this.characterUrl}${id}`).pipe(
           catchError(this.handleError('getCharacter', []))

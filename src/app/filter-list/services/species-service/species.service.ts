@@ -10,9 +10,7 @@ export class SpeciesService {
 
   constructor(
     private apiService: ApiService,
-  ) {
-    this.getSpecies();
-   }
+  ) {}
 
   getSpecies(url= null) {
     this.apiService.getSpecies(url).subscribe(species => {
