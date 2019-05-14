@@ -1,0 +1,16 @@
+.container {
+    padding-top: 4%;
+}
+.list-group-item {
+    background-color: white;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: gainsboro;
+}
+
+.list-group-item:active {
+    cursor: pointer;
+    background-color: darkgray;
+}
