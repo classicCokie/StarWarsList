@@ -1,25 +1,28 @@
-<div class="container">
-    <div class="row justify-content-md-center align-items-center">
-      <div class="col-md-auto">
-          <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{character.name}}</h5>
-                <p><b>StarShips:</b></p>
-                  <p *ngFor="let starship of character.starships">
-                    {{starship.name}}
-                  </p>
-                  <p><b>Films:</b></p>
-                  <p *ngFor="let film of character.films">
-                      {{film.title}}
-                  </p>
-                  <p><b>Species:</b></p>
-                <p *ngFor="let specie of character.species">
-                    {{specie.name}}
-                  </p>
-                <a href="#" class="btn btn-primary" routerLink="/list">Go Back</a>
-              </div>
-            </div>
-      </div>
-        
+<div class="screen-container">
+    <div class="container">
+        <div class="row justify-content-md-center align-items-center">
+          <div class="col-md-auto">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{character.name}}</h5>
+                    <p><b>StarShips:</b></p>
+                      <p *ngFor="let starship of character.starships">
+                        {{starship.name}}
+                      </p>
+                      <p><b>Films:</b></p>
+                      <p *ngFor="let film of character.films">
+                          {{film.title}}
+                      </p>
+                      <p><b>Species:</b></p>
+                    <p *ngFor="let specie of character.species">
+                        {{specie.name}}
+                      </p>
+                    <a href="#" class="btn btn-primary" routerLink="/list">Go Back</a>
+                  </div>
+                </div>
+          </div>
+            
+        </div>
     </div>
+
 </div>
