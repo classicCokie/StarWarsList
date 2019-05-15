@@ -1,0 +1,5 @@
+.screen-container {
+    background-color: black;
+    height: 100vh;
+    background-image: url(../../../../assets/img/bg.jpg);
+}
