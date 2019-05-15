@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { ApiService } from '../../services/api-service/api.service';
+import { Film } from '../../classes/film/film';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class FilmService {
     return new Observable(observable => {
       const film = this.films.find(film => {
         if (film.url === filmUrl) {
-          return film.name;
+          return film;
       }});
 
       if (film === undefined) {

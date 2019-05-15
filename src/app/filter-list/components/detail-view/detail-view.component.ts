@@ -34,21 +34,21 @@ export class DetailViewComponent implements OnInit {
     });
   }
 
-  getFilmNames(films) {
+  getFilmNames(films): void {
     combineLatest(films.map(filmUrl => this.filmService.getFilmNameByUrl(filmUrl)))
     .subscribe((films: string[]) => {
       this.character.films = films;
     });
   }
 
-  getSpeciesNames(species) {
+  getSpeciesNames(species): void {
     combineLatest(species.map(specieUrl => this.speciesService.getSpeciesByUrl(specieUrl)))
     .subscribe(species => {
       this.character.species = species;
     });
   }
 
-  getStarShipNames(startShipUrls) {
+  getStarShipNames(startShipUrls): void {
       // Make request for each starship Url
       combineLatest(startShipUrls.map(starshipUrl => this.starShipService.getStartShipNameByUrl(starshipUrl)))
       .subscribe((starships: string[]) => {

@@ -57,14 +57,14 @@ export class ListViewComponent implements OnInit {
     });
   }
 
-  listenOnFilterChange() {
+  listenOnFilterChange(): void  {
     this.filterForm.valueChanges.subscribe(changes => {
       this.filters = this.applyChangesToFilter(this.filters, changes);
       this.applyFilter();
     });
   }
 
-  applyChangesToFilter(filters, changes) {
+  applyChangesToFilter(filters, changes): Filter[] {
     return Object.keys(changes).reduce((result, key) => {
       // set if filter is active or not
       result[key].status = (changes[key] === null || changes[key].value === null) ? false : true;
@@ -86,7 +86,7 @@ export class ListViewComponent implements OnInit {
     }, JSON.parse(JSON.stringify(this.characterService.characters)));
   }
 
-  onSelectCharacter(characterId) {
+  onSelectCharacter(characterId): void {
     this.router.navigate(['/characters', characterId]);;
   }
 
